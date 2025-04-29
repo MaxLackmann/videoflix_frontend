@@ -1,0 +1,56 @@
+@use './mixins' as *;
+
+.btn {
+    background-color: #2E3EDF;
+    padding: 12px 24px;
+    border-radius: 40px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+        scale: 1.05;
+        transition: 125ms ease-in-out;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
+}
+
+.input {
+    width: 100%;
+    background-color: transparent;
+    padding: 12px 24px;
+    border-radius: 40px;
+    border: 1px solid white;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+
+    &::placeholder {
+        color: white;
+    }
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1;
+  }  
+
+.form-container {
+    max-width: 520px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px;
+    border-radius: 8px;
+    background-color: rgba(27, 27, 34, 0.851);
+}

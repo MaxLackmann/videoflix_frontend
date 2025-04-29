@@ -1,0 +1,25 @@
+.footer {
+  width: 100%;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
+
+.footer-content {
+  display: flex;
+  gap: 48px;
+
+  > a {
+    text-decoration: none;
+    color: white;
+    font: 18px;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
