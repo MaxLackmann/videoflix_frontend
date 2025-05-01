@@ -1,7 +1,39 @@
-@use './mixins' as *;
+@use './mixins.scss' as *;
+@use './variables.scss' as *;
+
+section {
+    @include display(flex, column, center, center);
+    @include position(relative);
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    color: white;
+}
+
+.form-container {
+    @include display(flex, column, center, center);
+    max-width: 520px;
+    width: 100%;
+    gap: 32px;
+    padding: 40px 32px;
+    border-radius: 48px;
+    background-color: rgba(27, 27, 34, 0.85)
+}
+
+form {
+    width: 100%;
+    > .form-field {
+        @include display(flex, column, center, center);
+        gap: 32px;
+        width: 100%;
+    }
+}
+
 
 .btn {
-    background-color: #2E3EDF;
+    background-color: $purple;
     padding: 12px 24px;
     border-radius: 40px;
     border: none;
@@ -11,46 +43,94 @@
     cursor: pointer;
 
     &:hover {
-        opacity: 0.8;
+        cursor: pointer;
+        background-color: $purple-hover;
         scale: 1.05;
-        transition: 125ms ease-in-out;
-    }
-
-    &:active {
-        opacity: 0.6;
     }
 }
+
+.btn-disabled {
+    background-color: $purple-disabled;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+  }
 
 .input {
     width: 100%;
     background-color: transparent;
-    padding: 12px 24px;
+    padding: 12px 48px;
+    border: 1px solid transparent;
     border-radius: 40px;
-    border: 1px solid white;
     color: white;
     font-size: 18px;
     font-weight: 400;
-    cursor: pointer;
+
+    &.input-white {
+        border-color: white;
+    }
+
+    &.input-purple {
+        border-color: $purple;
+    }
 
     &::placeholder {
         color: white;
     }
+
+    &:focus {
+        border: 1px solid $purple-active;
+        outline: none;
+    }
+}
+
+mat-icon.icon-left,
+mat-icon.icon-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $purple;
+  font-size: 24px;
+}
+
+.icon-left {
+  left: 16px;
+}
+
+.icon-right {
+  right: 16px;
+  cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
 }
 
 .overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
-  }  
-
-.form-container {
-    max-width: 520px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    padding: 32px;
-    border-radius: 8px;
-    background-color: rgba(27, 27, 34, 0.851);
 }
+
+.section-login-bg {
+    @include background($login-bg);
+  }
+  
+  .section-register-bg {
+    @include background($register-bg);
+  }
+  
+  .section-startsite-bg {
+    @include background($startsite-bg);
+  }
+  
+  .section-forgot-password-bg {
+    @include background($forgot-password-bg);
+  }
+  

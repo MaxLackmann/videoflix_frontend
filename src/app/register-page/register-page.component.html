@@ -1,0 +1,50 @@
+<div class="section-register-bg">
+  <div class="overlay">
+    <section>
+      <div class="form-container">
+        <h1>Sign up</h1>
+        <form action="">
+          <div class="form-field">
+            <div class="input-wrapper">
+              <mat-icon class="icon-left">email</mat-icon>
+              <input
+                class="input input-purple"
+                type="email"
+                placeholder="Email address"
+              />
+            </div>
+            <div class="input-wrapper">
+              <mat-icon class="icon-left">password</mat-icon>
+              <input
+                #passwordInput
+                class="input input-purple"
+                type="password"
+                [type]="showPassword ? 'text' : 'password'"
+                placeholder="Enter a password"
+              />
+              <mat-icon class="icon-right" (click)="togglePassword(); passwordInput.focus()">{{
+                showPassword ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </div>
+            <div class="input-wrapper">
+              <mat-icon class="icon-left">password</mat-icon>
+              <input
+                #repeatPasswordInput
+                class="input input-purple"
+                type="password"
+                [type]="showRepeatPassword ? 'text' : 'password'"
+                placeholder="Confirm Password"
+              />
+              <mat-icon class="icon-right" (click)="toggleRepeatPassword(); repeatPasswordInput.focus()">{{
+                showRepeatPassword ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </div>
+            <button class="btn" type="submit" routerLink="/dashboard">
+              Get Started
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</div>

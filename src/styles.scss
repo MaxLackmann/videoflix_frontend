@@ -1,16 +1,13 @@
-@import './app/shared/styles/fonts.scss';
+@use './app/shared/styles/fonts.scss' as *;
+@use './app/shared/styles/mixins.scss' as *;
+@use './app/shared/styles/landing-shared.scss' as *;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html,
-body {
   font-family: "Roboto", "Inter", sans-serif;
-  color: white;
-  font-weight: 400;
+
 }
 
 h1 {

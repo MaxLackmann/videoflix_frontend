@@ -1,19 +1,19 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { LoginComponent } from './features/auth/login/login.component';
-import { RegisterComponent } from './features/auth/register/register.component';
-import { VideoOfferComponent } from './features/video-offer/video-offer.component';
-import { ForgotPasswordComponent } from './features/auth/forgot-password/forgot-password.component';
-import { PrivacyPolicyComponent } from './features/privacy-policy/privacy-policy.component';
-import { ImprintComponent } from './features/imprint/imprint.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
+import { ResetPageComponent } from './reset-page/reset-page.component';
+import { VideoofferPageComponent } from './videooffer-page/videooffer-page.component';
+import { PrivacyPageComponent } from './privacy-page/privacy-page.component';
+import { ImprintPageComponent } from './imprint-page/imprint-page.component';
 
 export const routes: Routes = [
-    { path: '', component: DashboardComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'forgot-password', component: ForgotPasswordComponent },
-    { path: 'video/:id', component: VideoOfferComponent },
-    { path: 'privacy-policy', component: PrivacyPolicyComponent },
-    { path: 'imprint', component: ImprintComponent },
+    { path: '', component: LandingPageComponent },
+    { path: 'login', component: LoginPageComponent },
+    { path: 'register', component: RegisterPageComponent },
+    { path: 'forgot-password', component: ResetPageComponent },
+    { path: 'video/:id', component: VideoofferPageComponent },
+    { path: 'privacy-policy', component: PrivacyPageComponent },
+    { path: 'imprint', component: ImprintPageComponent },
     { path: '**', redirectTo: '' }
 ];

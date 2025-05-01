@@ -8,7 +8,7 @@ import { FooterComponent } from './shared/footer/footer.component';
   selector: 'app-root',
   imports: [RouterOutlet, CommonModule, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'videoflix_frontend';
