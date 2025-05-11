@@ -1,1 +1,13 @@
-<p>video-player works!</p>
+<div class="video-player">
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        class="background-video"
+        [src]=""
+    >
+    </video>
+    <button class="close-button" (click)="onClose()"><mat-icon>close</mat-icon></button>
+</div>

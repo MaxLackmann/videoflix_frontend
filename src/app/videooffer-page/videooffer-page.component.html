@@ -1,1 +1,87 @@
-<p>videooffer-page works!</p>
+<div class="section-videos-bg">
+  <div class="overlay">
+    <section>
+      <app-header class="header"></app-header>
+      <div >
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          class="highlight-video"
+          [src]="highlightVideo.url"
+        >
+          >
+        </video>
+      </div>
+      <div class="content">
+        <div class="top">
+          <div class="videodescription">
+            <h1>{{ highlightVideo.title }}</h1>
+            <p>
+              {{ highlightVideo.description }}
+            </p>
+            <button class="btn" (click)="playVideo(highlightVideo.url)">
+              <mat-icon>play_arrow</mat-icon>Play
+            </button>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="categories">
+            <div *ngFor="let section of sections" class="category">
+              <h3>{{ section.title }}</h3>
+              <div class="video-content">
+                <button class="scroll">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="arrow-icon"
+                  >
+                    <path
+                      d="M15 6L9 12L15 18"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <div class="video-row">
+                  <app-video-card
+                    *ngFor="let video of section.videos"
+                    [title]="video.title"
+                    [thumbnail]="video.thumbnail"
+                    (play)="playVideo(video.url)"
+                  ></app-video-card>
+                </div>
+                <button class="scroll">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="arrow-icon"
+                  >
+                    <path
+                      d="M9 6L15 12L9 18"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-footer class="footer footer-end"></app-footer>
+    </section>
+  </div>
+</div>

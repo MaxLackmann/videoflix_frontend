@@ -2,4 +2,23 @@
 @use '../shared/styles/landing-shared.scss' as *;
 @use '../shared/styles/variables.scss' as *;
 
+.form-container-landing {
+    @include display(flex, column, center, center);
+    width: 100%;
+    gap: 32px;
+    border-radius: 48px;
+  
+    > h1 {
+      text-align: center;
+    }
+  }
 
+  .form-container-landing {
+    h1 {
+      font-size: 40px;
+    }
+
+    p {
+      text-align: center;
+    }
+  }

@@ -1,0 +1,27 @@
+@use '../styles/mixins.scss' as *;
+@use '../styles/landing-shared.scss' as *;
+@use '../styles/variables.scss' as *;
+
+.card {
+    @include position(relative, 0, 0, 0, 0);
+    @include display(flex, column, center, center);
+    gap: 8px;
+    cursor: pointer;
+    height: 150px;
+    width: 200px;
+
+    > .title {
+        @include position(absolute, unset, 0, 0, 0);
+        width: 100%;
+        text-align: center;
+        background-color: $purple-hover;
+    }
+
+    > img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+

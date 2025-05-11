@@ -1,19 +1,59 @@
 <div class="section-login-bg">
-    <div class="overlay">
-      <section>
-        <div class="form-container">
-          <h1>Log in</h1>
-          <form action="">
-            <input matIcon class="input" type="email" placeholder="Email address" />
-            <input class="input" type="password" placeholder="Password" />
-            <button class="btn" type="submit" routerLink="/dashboard">
-              Log in
-            </button>
-          </form>
-          <a routerLink="/forgot-password"><span>Forgot Password?</span></a>
-          <p>Don't have an account? <a routerLink="/register">Sign Up now</a></p>
+  <div class="overlay">
+    <section>
+      <app-header class="header"></app-header>
+      <div class="form-container">
+        <h1>Log in</h1>
+        <form action="">
+          <div class="form-field">
+            <div class="input-wrapper">
+              <mat-icon class="icon-left">email</mat-icon>
+              <input
+                class="input input-auth"
+                type="email"
+                placeholder="Email Address"
+              />
+            </div>
+            <div class="input-wrapper">
+              <mat-icon class="icon-left">password</mat-icon>
+              <input
+                #passwordInput
+                class="input input-auth"
+                type="password"
+                [type]="showPassword ? 'text' : 'password'"
+                placeholder="Password"
+              />
+              <mat-icon
+                class="icon-right"
+                (click)="togglePassword(); passwordInput.focus()"
+                >{{ showPassword ? "visibility_off" : "visibility" }}</mat-icon
+              >
+            </div>
+            <div class="custom-checkbox">
+              <input id="remember" type="checkbox" />
+              <label for="remember">
+                <span class="label-text">Remember me</span>
+              </label>
+            </div>
+            <div class="btn-container">
+              <button class="btn" type="submit" routerLink="/videos">
+                Log in
+              </button>
+              <button class="btn" type="submit" routerLink="/videos">
+                Guest Login
+              </button>
+            </div>
+          </div>
+        </form>
+        <a routerLink="/reset"> Forgot Password?</a>
+
+        <div class="bottom-signup-text">
+          <p>
+            New to Videoflix? <a routerLink="/register">Sign Up now</a>
+          </p>
         </div>
-      </section>
-    </div>
+      </div>
+      <app-footer class="footer"></app-footer>
+    </section>
   </div>
-  
+</div>

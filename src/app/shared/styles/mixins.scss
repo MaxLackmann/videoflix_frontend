@@ -42,7 +42,7 @@
   background-position: $background-position;
   background-repeat: $background-repeat;
   background-color: $background-color;
-  @include position(fixed, 0, 0, 0, 0);
+  @include position(absolute, 0, 0, 0, 0);
   width: 100%;
   height: 100vh;
   z-index: -1;
