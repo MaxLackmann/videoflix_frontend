@@ -3,16 +3,22 @@
     <section>
       <app-header class="header"></app-header>
       <div class="form-container-landing">
-          <h1 class="">Movies, TV shows and more</h1>
+        <h1 class="">Movies, TV shows and more</h1>
         <p class="">Enter your email to create or restart your subscription.</p>
-        <form action="">
+        <form [formGroup]="form" (ngSubmit)="goRegister()">
           <div class="landing-form-field">
             <input
               class="input input-landing"
               type="email"
               placeholder="Email address"
+              formControlName="email"
             />
-            <button class="btn sign-up" type="submit" routerLink="/register">
+            <button
+              class="btn sign-up"
+              [ngClass]="form.valid ? 'enabled' : 'disabled'"
+              type="submit"
+              [disabled]="form.invalid"
+            >
               Sign Up >
             </button>
           </div>

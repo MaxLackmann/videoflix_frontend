@@ -4,7 +4,7 @@
       <app-header class="header"></app-header>
       <div class="form-container">
         <h1>Log in</h1>
-        <form action="">
+        <form [formGroup]="form" (ngSubmit)="login()">
           <div class="form-field">
             <div class="input-wrapper">
               <mat-icon class="icon-left">email</mat-icon>
@@ -12,6 +12,7 @@
                 class="input input-auth"
                 type="email"
                 placeholder="Email Address"
+                formControlName="email"
               />
             </div>
             <div class="input-wrapper">
@@ -22,6 +23,7 @@
                 type="password"
                 [type]="showPassword ? 'text' : 'password'"
                 placeholder="Password"
+                formControlName="password"
               />
               <mat-icon
                 class="icon-right"
@@ -36,21 +38,15 @@
               </label>
             </div>
             <div class="btn-container">
-              <button class="btn" type="submit" routerLink="/videos">
-                Log in
-              </button>
-              <button class="btn" type="submit" routerLink="/videos">
-                Guest Login
-              </button>
+              <button class="btn" type="submit">Log in</button>
+              <button class="btn" type="submit">Guest Login</button>
             </div>
           </div>
         </form>
         <a routerLink="/reset"> Forgot Password?</a>
 
         <div class="bottom-signup-text">
-          <p>
-            New to Videoflix? <a routerLink="/register">Sign Up now</a>
-          </p>
+          <p>New to Videoflix? <a routerLink="/register">Sign Up now</a></p>
         </div>
       </div>
       <app-footer class="footer"></app-footer>

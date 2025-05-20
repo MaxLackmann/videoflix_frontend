@@ -8,11 +8,13 @@ import { VideoPlayerComponent } from './shared/video-player/video-player.compone
 import { PrivacyPageComponent } from './privacy-page/privacy-page.component';
 import { ImprintPageComponent } from './imprint-page/imprint-page.component';
 import { ForgotPasswordPageComponent } from './forgot-password-page/forgot-password-page.component';
+import { VerifyEmailPageComponent } from './verify-email-page/verify-email-page.component';
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },
     { path: 'login', component: LoginPageComponent },
     { path: 'register', component: RegisterPageComponent },
+    { path: 'verify-email', component: VerifyEmailPageComponent },
     { path: 'forgot-password', component: ForgotPasswordPageComponent },
     { path: 'reset', component: ResetPageComponent },
     { path: 'videos', component: VideoofferPageComponent },

@@ -102,19 +102,22 @@ section {
   color: white;
   font-size: 18px;
   font-weight: 700;
-  cursor: pointer;
+  transition: background 0.2s, scale 0.2s;
 
-  &:hover {
-    cursor: pointer;
+  &.enabled {
     background-color: $purple-hover;
-    scale: 1.05;
-  }
-}
+    cursor: pointer;
+    opacity: 1;
 
-.btn-disabled {
-  background-color: $purple-disabled;
-  cursor: not-allowed;
-  pointer-events: none;
+    &:hover {
+      scale: 1.05;
+    }
+  }
+
+  &.disabled {
+    background-color: $purple-disabled;
+    pointer-events: none;
+  }
 }
 
 .btn-container {
@@ -324,6 +327,10 @@ mat-icon.icon-right {
 
 .section-forgot-password-bg {
   @include background($forgot-password-bg);
+}
+
+.section-verify-bg {
+  @include background($verify-bg);
 }
 
 @media (max-width: 1024px) {
