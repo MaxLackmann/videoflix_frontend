@@ -17,6 +17,11 @@
     </a>
   </div>
   <div class="right-side">
-    <button class="btn" routerLink="/login">Log in</button>
+    <ng-container *ngIf="isAuthenticated; else showLogin">
+      <button class="btn" (click)="logout()">Log out</button>
+    </ng-container>
+    <ng-template #showLogin>
+      <button class="btn" routerLink="/login">Log in</button>
+    </ng-template>
   </div>
 </div>

@@ -5,13 +5,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from "../shared/header/header.component";
 import { FooterComponent } from '../shared/footer/footer.component';
 
+
 @Component({
-  selector: 'app-reset-page',
+  selector: 'app-reset-password-page',
   imports: [CommonModule, HeaderComponent, FooterComponent, RouterLink, MatIconModule, HeaderComponent],
-  templateUrl: './reset-page.component.html',
-  styleUrl: './reset-page.component.scss'
+  templateUrl: './reset-password-page.component.html',
+  styleUrl: './reset-password-page.component.scss'
 })
-export class ResetPageComponent {
+export class ResetPasswordPageComponent {
   showPassword = false;
   showRepeatPassword = false;
 

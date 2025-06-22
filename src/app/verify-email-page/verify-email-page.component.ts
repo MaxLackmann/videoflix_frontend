@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../shared/header/header.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MailService } from '../../services/mail.service';
+import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { HeaderComponent } from '../shared/header/header.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-verify-email-page',
@@ -17,25 +18,39 @@ export class VerifyEmailPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private mailService: MailService,
-    private router: Router
+    private authService: AuthService,
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
-    const uid = this.route.snapshot.queryParamMap.get('uid');
+    console.log('ngOnInit ausgeführt');
     const token = this.route.snapshot.queryParamMap.get('token');
-    if (!uid || !token) {
+    console.log('Token aus URL:', token);
+
+    if (!token) {
       this.loading = false;
       this.success = false;
       return;
     }
-    this.mailService.verifyEmail(uid, token).subscribe({
+
+    console.log('Starte verifyEmail API-Call');
+    this.authService.verifyEmail(token).subscribe({
       next: () => {
+        console.log('verifyEmail success');
         this.success = true;
         this.loading = false;
-        setTimeout(() => this.router.navigate(['/videos']), 1500);
+        console.log('Vor replaceState');
+        this.location.replaceState('/verify-email');
+        console.log('Nach replaceState, vor setTimeout');
+        setTimeout(() => {
+          console.log('Navigiere zu /login');
+          this.router.navigate(['/login']);
+        }, 3000);
       },
-      error: (err) => {
+
+      error: (err: any) => {
+        console.log('verifyEmail error:', err);
         this.error = err.error?.detail?.[0] || 'Verifizierung fehlgeschlagen.';
         this.loading = false;
       },

@@ -60,7 +60,7 @@ export class RegisterPageComponent {
       return;
     }
     this.auth.register(this.form.value).subscribe({
-      next: () => this.router.navigate(['/verify-email']),
+      next: () => this.router.navigate(['/verify-email-info']),
       error: (err) => alert('Fehler: ' + JSON.stringify(err.error)),
     });
   }

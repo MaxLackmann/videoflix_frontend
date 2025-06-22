@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
+
 
 @Component({
   selector: 'app-header',
@@ -9,5 +11,16 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  isAuthenticated = false;
 
+  constructor(private auth: AuthService) {
+    this.auth.isAuthenticated$.subscribe(
+      status => this.isAuthenticated = status
+    );
+  }
+
+
+  logout() {
+    this.auth.logout();
+  }
 }

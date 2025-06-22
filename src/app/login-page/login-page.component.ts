@@ -51,7 +51,7 @@ export class LoginPageComponent {
   login(): void {
     if (this.form.invalid) return;
     this.auth.login(this.form.value).subscribe({
-      next: (tokens) => this.handleSuccess(tokens),
+      next: () => this.router.navigate(['/videos']),
       error: (err) => this.handleError(err),
     });
   }
