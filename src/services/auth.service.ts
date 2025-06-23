@@ -44,8 +44,8 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  requestPasswordReset(token: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/forgot-password/`, { token });
+  requestPasswordReset(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/userapp/forgot-password/`, { email });
   }
 
   resetPassword(
@@ -53,9 +53,9 @@ export class AuthService {
     password: string,
     repeated_password: string
   ): Observable<any> {
-    return this.http.post(`${this.apiUrl}/reset-password/`, {
+    return this.http.post(`${this.apiUrl}/userapp/reset-password/`, {
       token,
-      password,
+      new_password : password,
       repeated_password,
     });
   }

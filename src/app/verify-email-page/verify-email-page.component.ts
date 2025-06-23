@@ -37,14 +37,10 @@ export class VerifyEmailPageComponent implements OnInit {
     console.log('Starte verifyEmail API-Call');
     this.authService.verifyEmail(token).subscribe({
       next: () => {
-        console.log('verifyEmail success');
         this.success = true;
         this.loading = false;
-        console.log('Vor replaceState');
         this.location.replaceState('/verify-email');
-        console.log('Nach replaceState, vor setTimeout');
         setTimeout(() => {
-          console.log('Navigiere zu /login');
           this.router.navigate(['/login']);
         }, 3000);
       },
