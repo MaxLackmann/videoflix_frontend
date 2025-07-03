@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,7 +7,7 @@ import { ViewChild, ElementRef } from '@angular/core';
 @Component({
   selector: 'app-video-player',
   standalone: true,
-  imports: [CommonModule, MatIconModule, FormsModule],
+  imports: [MatIconModule, FormsModule],
   templateUrl: './video-player.component.html',
   styleUrl: './video-player.component.scss',
 })

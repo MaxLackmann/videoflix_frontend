@@ -4,9 +4,11 @@
     <app-header class="header"></app-header>
     <div class="verify-container">
       <div class="loader"></div>
-      <div *ngIf="success && !error" class="success-message">
-        E-Mail erfolgreich bestätigt! Du wirst weitergeleitet ...
-      </div>
+      @if (success && !error) {
+        <div class="success-message">
+          E-Mail erfolgreich bestätigt! Du wirst weitergeleitet ...
+        </div>
+      }
     </div>
   </section>
 </div>

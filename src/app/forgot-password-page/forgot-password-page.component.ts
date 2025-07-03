@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from '../shared/footer/footer.component';
@@ -15,12 +15,11 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-forgot-password-page',
   imports: [
-    CommonModule,
     HeaderComponent,
     FooterComponent,
     MatIconModule,
-    ReactiveFormsModule,
-  ],
+    ReactiveFormsModule
+],
   templateUrl: './forgot-password-page.component.html',
   styleUrl: './forgot-password-page.component.scss',
 })

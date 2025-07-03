@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-video-card',
-  imports: [CommonModule, MatIconModule],
+  imports: [MatIconModule],
   templateUrl: './video-card.component.html',
   styleUrl: './video-card.component.scss'
 })

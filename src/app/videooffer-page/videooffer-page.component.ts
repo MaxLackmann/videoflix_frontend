@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
@@ -11,13 +11,12 @@ import { VideoService } from '../../services/videoservice';
 @Component({
   selector: 'app-videooffer-page',
   imports: [
-    CommonModule,
     MatIconModule,
     VideoCardComponent,
     VideoPlayerComponent,
     HeaderComponent,
-    FooterComponent,
-  ],
+    FooterComponent
+],
   templateUrl: './videooffer-page.component.html',
   styleUrl: './videooffer-page.component.scss',
 })

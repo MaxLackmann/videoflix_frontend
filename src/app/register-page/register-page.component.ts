@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
+
 import { HeaderComponent } from '../shared/header/header.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 import {
@@ -15,12 +15,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-register-page',
   imports: [
-    CommonModule,
     HeaderComponent,
     FooterComponent,
     MatIconModule,
-    ReactiveFormsModule,
-  ],
+    ReactiveFormsModule
+],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.scss',
 })

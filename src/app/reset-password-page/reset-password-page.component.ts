@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from '../shared/header/header.component';
@@ -15,13 +15,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-reset-password-page',
   imports: [
-    CommonModule,
     HeaderComponent,
     FooterComponent,
     ReactiveFormsModule,
     MatIconModule,
-    HeaderComponent,
-  ],
+    HeaderComponent
+],
   templateUrl: './reset-password-page.component.html',
   styleUrl: './reset-password-page.component.scss',
 })

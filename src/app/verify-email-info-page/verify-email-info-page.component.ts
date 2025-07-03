@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../shared/header/header.component';
 
 @Component({
   selector: 'app-verify-email-info-page',
-  imports: [CommonModule, HeaderComponent],
+  imports: [HeaderComponent],
   templateUrl: './verify-email-info-page.component.html',
   styleUrl: './verify-email-info-page.component.scss'
 })

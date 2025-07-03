@@ -2,11 +2,12 @@
   <div class="overlay">
     <section>
       <app-header class="header"></app-header>
-      <app-video-player
-        *ngIf="showPlayer"
-        [sources]="playerSources"
-        (close)="closePlayer()"
-      ></app-video-player>
+      @if (showPlayer) {
+        <app-video-player
+          [sources]="playerSources"
+          (close)="closePlayer()"
+        ></app-video-player>
+      }
       <div>
         <video
           autoplay
@@ -16,7 +17,7 @@
           preload="auto"
           class="highlight-video"
           [src]="highlightVideo.id"
-        >
+          >
           >
         </video>
       </div>
@@ -34,59 +35,62 @@
         </div>
         <div class="bottom">
           <div class="categories">
-            <div *ngFor="let section of sections" class="category">
-              <h3>{{ section.title }}</h3>
-              <div class="video-content">
-                <button class="scroll">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="arrow-icon"
-                  >
-                    <path
-                      d="M15 6L9 12L15 18"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-                <div class="video-row">
-                  <app-video-card
-                    *ngFor="let video of section.videos"
-                    [title]="video.title"
-                    [thumbnail]="video.thumbnail"
-                    (play)="playVideo(video.id)"
-                  ></app-video-card>
-                </div>
-                <button class="scroll">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="arrow-icon"
-                  >
-                    <path
-                      d="M9 6L15 12L9 18"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
+            @for (section of sections; track section) {
+              <div class="category">
+                <h3>{{ section.title }}</h3>
+                <div class="video-content">
+                  <button class="scroll">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="arrow-icon"
+                      >
+                      <path
+                        d="M15 6L9 12L15 18"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div class="video-row">
+                      @for (video of section.videos; track video) {
+                        <app-video-card
+                          [title]="video.title"
+                          [thumbnail]="video.thumbnail"
+                          (play)="playVideo(video.id)"
+                        ></app-video-card>
+                      }
+                    </div>
+                    <button class="scroll">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="arrow-icon"
+                        >
+                        <path
+                          d="M9 6L15 12L9 18"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                }
               </div>
             </div>
           </div>
-        </div>
+          <app-footer class="footer footer-end"></app-footer>
+        </section>
       </div>
-      <app-footer class="footer footer-end"></app-footer>
-    </section>
-  </div>
-</div>
+    </div>

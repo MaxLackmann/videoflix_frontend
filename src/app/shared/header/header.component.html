@@ -6,22 +6,21 @@
           class="arrow_up"
           src="../../../assets/svg/logo_arrow_up.svg"
           alt=""
-        />
-        <img
-          class="arrow_down"
-          src="../../../assets/svg/logo_arrow_down.svg"
-          alt=""
-        />
+          />
+          <img
+            class="arrow_down"
+            src="../../../assets/svg/logo_arrow_down.svg"
+            alt=""
+            />
+          </div>
+          <img class="textlogo" src="../../../assets/svg/logo_text.svg" alt="" />
+        </a>
       </div>
-      <img class="textlogo" src="../../../assets/svg/logo_text.svg" alt="" />
-    </a>
-  </div>
-  <div class="right-side">
-    <ng-container *ngIf="isAuthenticated; else showLogin">
-      <button class="btn" (click)="logout()">Log out</button>
-    </ng-container>
-    <ng-template #showLogin>
-      <button class="btn" routerLink="/login">Log in</button>
-    </ng-template>
-  </div>
-</div>
+      <div class="right-side">
+        @if (isAuthenticated) {
+          <button class="btn" (click)="logout()">Log out</button>
+        } @else {
+          <button class="btn" routerLink="/login">Log in</button>
+        }
+      </div>
+    </div>

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-verify-email-page',
-  imports: [CommonModule, HeaderComponent],
+  imports: [HeaderComponent],
   templateUrl: './verify-email-page.component.html',
   styleUrls: ['./verify-email-page.component.scss'],
 })

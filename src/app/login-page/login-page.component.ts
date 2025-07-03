@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,14 +17,13 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-page',
   imports: [
-    CommonModule,
     HeaderComponent,
     FooterComponent,
     RouterLink,
     MatIconModule,
     MatCheckboxModule,
-    ReactiveFormsModule,
-  ],
+    ReactiveFormsModule
+],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
 })
