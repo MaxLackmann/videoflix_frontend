@@ -2,7 +2,12 @@
   <div class="overlay">
     <section>
       <app-header class="header"></app-header>
-      <div >
+      <app-video-player
+        *ngIf="showPlayer"
+        [sources]="playerSources"
+        (close)="closePlayer()"
+      ></app-video-player>
+      <div>
         <video
           autoplay
           muted
@@ -10,7 +15,7 @@
           playsinline
           preload="auto"
           class="highlight-video"
-          [src]="highlightVideo.url"
+          [src]="highlightVideo.id"
         >
           >
         </video>
@@ -22,7 +27,7 @@
             <p>
               {{ highlightVideo.description }}
             </p>
-            <button class="btn" (click)="playVideo(highlightVideo.url)">
+            <button class="btn" (click)="playVideo(highlightVideo.id)">
               <mat-icon>play_arrow</mat-icon>Play
             </button>
           </div>
@@ -55,7 +60,7 @@
                     *ngFor="let video of section.videos"
                     [title]="video.title"
                     [thumbnail]="video.thumbnail"
-                    (play)="playVideo(video.url)"
+                    (play)="playVideo(video.id)"
                   ></app-video-card>
                 </div>
                 <button class="scroll">

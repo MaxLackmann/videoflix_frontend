@@ -1,13 +1,110 @@
-<div class="video-player">
-    <video
-        autoplay
-        muted
-        loop
+<div class="video-player-overlay">
+  <div class="video-player-dialog" #dialogEl>
+    <button
+      *ngIf="showControls"
+      class="icon-btn close-button"
+      (click)="onClose()"
+      aria-label="Schließen"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <div class="video-wrapper" style="position: relative">
+      <video
+        #videoPlayer
+        [src]="sources[selectedQuality]"
         playsinline
         preload="auto"
-        class="background-video"
-        [src]=""
-    >
-    </video>
-    <button class="close-button" (click)="onClose()"><mat-icon>close</mat-icon></button>
+        class="video-element"
+        (play)="onPlay()"
+        (pause)="onPause()"
+        (click)="togglePlayPause()"
+      ></video>
+
+      <button
+        *ngIf="showCentralPlay"
+        class="central-play-btn"
+        aria-label="Abspielen"
+        (click)="centralPlay()"
+        type="button"
+      >
+        <mat-icon class="play-icon">play_arrow</mat-icon>
+      </button>
+    </div>
+
+    <div *ngIf="showControls" class="controls">
+      <button
+        (click)="togglePlayPause()"
+        class="icon-btn"
+        aria-label="Wiedergabe/Pause"
+      >
+        <mat-icon>
+          {{ isPlaying ? "pause" : "play_arrow" }}
+        </mat-icon>
+      </button>
+
+      <div
+        class="volume-control"
+        (mouseenter)="onVolumeButtonMouseEnter()"
+        (mouseleave)="onVolumeButtonMouseLeave()"
+        style="display: inline-block; position: relative"
+      >
+        <button
+          class="icon-btn"
+          aria-label="Ton an/aus"
+          (click)="onMuteToggle()"
+        >
+          <mat-icon>
+            {{
+              muted || volume < 0.01
+                ? "volume_off"
+                : volume < 0.4
+                ? "volume_down"
+                : "volume_up"
+            }}
+          </mat-icon>
+        </button>
+        <div
+          *ngIf="showVolumeBar"
+          class="volume-bar"
+          style="
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            padding: 6px;
+          "
+        >
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            [value]="volume"
+            (input)="onVolumeChange($event)"
+          />
+        </div>
+      </div>
+
+
+
+
+      
+
+      <select [(ngModel)]="selectedQuality">
+        <option *ngFor="let q of qualities" [value]="q">{{ q }}</option>
+      </select>
+
+      <button
+        (click)="toggleFullscreen()"
+        class="icon-btn"
+        aria-label="Vollbild"
+      >
+        <mat-icon>
+          {{ fullscreenActive ? "fullscreen_exit" : "fullscreen" }}
+        </mat-icon>
+      </button>
+    </div>
+  </div>
 </div>
